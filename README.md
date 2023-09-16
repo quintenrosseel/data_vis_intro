@@ -3,7 +3,7 @@
 ## About this repository
 - This is a template to get you started with your data story. 
 - The data in this starter template is taken from Statbel, and involves Belgian accidents in 2021. 
-- If you don't have a dataset yet, and you need inspiration for potential datasets, see [this link](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4567555). You can also use the 
+- If you don't have a dataset yet, and you need inspiration for potential datasets, see [this link](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4567555). You can also use the Statbel datasets if they suit your curiosity. 
 
 ## Setting up the Databricks workspace
 ### 1. Creating your private Github Repository
