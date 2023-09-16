@@ -7,9 +7,25 @@
 # MAGIC - The dataset is taken from Statbel, and involves Belgian accidents in 2021. 
 # MAGIC - If you need inspiration for potential datasets, see [this link](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4567555).
 # MAGIC
-# MAGIC # Getting Started
-# MAGIC The first questions to ask yourself when creating a data visualisation are listed below. 
-# MAGIC These steps 
+# MAGIC # Setting up the workspace
+# MAGIC
+# MAGIC **Adding the repository to the Databricks workspace**
+# MAGIC - Fork the [repository](https://github.com/quintenrosseel/data_vis_intro) into your own Github account.
+# MAGIC   - Make sure to make your repository private after forking. We don't want to make the datasets public. 
+# MAGIC - Go to `settings` > `developer settings` > `tokens (classic)` and create a classic token to link your repository. 
+# MAGIC - Link your Github with your Github username and the token you generated above.  
+# MAGIC - Add a new repository, as described in the course the [Miro board](https://miro.com/app/board/uXjVMoBkTRQ=/?share_link_id=950119977618).
+# MAGIC
+# MAGIC
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC
+# MAGIC # Data Exploration 
+# MAGIC
+# MAGIC ## Getting Started
+# MAGIC The first questions to ask yourself when creating a data visualisation are; 
 # MAGIC
 # MAGIC **1. What is the message I want to convey with this report?**
 # MAGIC - What is the data story? (see tips in the [Miro board](https://miro.com/app/board/uXjVMoBkTRQ=/?share_link_id=950119977618))
@@ -22,13 +38,16 @@
 # MAGIC - Exploratory data visualisaton
 # MAGIC - Narrative data visualisation
 # MAGIC
-# MAGIC Often times, you don't know your dataset, so we need to explore it first. From 
+# MAGIC Often times, you don't know your dataset, so we need to explore it first.
 
 # COMMAND ----------
 
 # MAGIC %md 
 # MAGIC
-# MAGIC First, let's download a handy tool to understand our dataset better, [Ydata Profiling](https://github.com/ydataai/ydata-profiling)! 
+# MAGIC ## Set up the data environment
+# MAGIC
+# MAGIC Pandas and numpy come out-of-the box on Databricks.
+# MAGIC To advance our workflow, let's download a handy tool to understand our dataset better, [Ydata Profiling](https://github.com/ydataai/ydata-profiling)! 
 
 # COMMAND ----------
 
@@ -38,11 +57,24 @@
 
 import pandas as pd
 import numpy as np
-import ydata_profiling as ydp 
+import ydata_profiling
+
+# COMMAND ----------
+
+# MAGIC %md 
+# MAGIC **Adding your dataset**
+# MAGIC - Execute the command below to get information such as `YOUR_EMAIL`, `YOUR_REPO_NAME`. 
+# MAGIC - Add your dataset in the `data` directory using the `import` button in the UI. 
 
 # COMMAND ----------
 
 dbutils.notebook.entry_point.getDbutils().notebook().getContext().notebookPath().get()
+
+# COMMAND ----------
+
+# MAGIC %md 
+# MAGIC ## Reading in the dataset
+# MAGIC Make sure to fill in `YOUR_EMAIL` & `YOUR_REPO_NAME` to ensure that Databricks reads in the file correctly. 
 
 # COMMAND ----------
 
@@ -63,30 +95,29 @@ population_2021_df = pd.read_csv(datasets['population'])
 # COMMAND ----------
 
 # MAGIC %md 
-# MAGIC
-# MAGIC # Data Exploration 
+# MAGIC ## Common functions for data exploration 
+# MAGIC - `df.info()`: Metadata information of your dataset
+# MAGIC - `df.describe()`: Summary stats of your dataset
+# MAGIC - `df.head(n)`: top `n` rows of your dataset
+# MAGIC - `ydata_profiling.ProfileReport`: a full report of your dataset. This is what you'll use to inform your data story.  
 
 # COMMAND ----------
 
-accidents_2021_df.head(20)
+accidents_2021_df.info()
 
 # COMMAND ----------
 
-import matplotlib.pyplot as plt 
-import matplotlib.animation 
-import numpy as np
+accidents_2021_df.describe()
 
-t = np. linspace(0, 10, 1000)
-fig, ax = plt.subplots(1, 1, figsize=(16,9) , dpi=300)
-ax. set_facecolor("black" )
-ax.axis(False)
-fig. set_facecolor("black")
-line, = ax.plot(t, np.sin( frequency_values [0]*t), lw=5, color="white")
-ax.set_ylim(-5,5)
+# COMMAND ----------
 
-def animate(playhead):
-    mask = (t <= playhead)
-    line.set_data(t[mask], np.sin(4*t [mask]))
-    anim = matplotlib.animation. FuncAnimation( fig, animate, t[::101, interval=30)
-    anim.save "Matplotlib simple wave.mp4" )
+accidents_2021_df.head(5)
 
+# COMMAND ----------
+
+from ydata_profiling import ProfileReport
+
+eda_report = ProfileReport(accidents_2021_df)
+
+# Show the report
+eda_report
