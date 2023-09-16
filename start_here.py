@@ -1,25 +1,4 @@
 # Databricks notebook source
-# MAGIC %md 
-# MAGIC
-# MAGIC # About this notebook
-# MAGIC
-# MAGIC - This is a template to get you started with your data story. 
-# MAGIC - The dataset is taken from Statbel, and involves Belgian accidents in 2021. 
-# MAGIC - If you need inspiration for potential datasets, see [this link](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4567555).
-# MAGIC
-# MAGIC # Setting up the workspace
-# MAGIC
-# MAGIC **Adding the repository to the Databricks workspace**
-# MAGIC - Fork the [repository](https://github.com/quintenrosseel/data_vis_intro) into your own Github account.
-# MAGIC   - Make sure to make your repository private after forking. We don't want to make the datasets public. 
-# MAGIC - Go to `settings` > `developer settings` > `tokens (classic)` and create a classic token to link your repository. 
-# MAGIC - Link your Github with your Github username and the token you generated above.  
-# MAGIC - Add a new repository, as described in the course the [Miro board](https://miro.com/app/board/uXjVMoBkTRQ=/?share_link_id=950119977618).
-# MAGIC
-# MAGIC
-
-# COMMAND ----------
-
 # MAGIC %md
 # MAGIC
 # MAGIC # Data Exploration 
@@ -37,6 +16,7 @@
 # MAGIC **3. What type of visualisation or report is it?**
 # MAGIC - Exploratory data visualisaton
 # MAGIC - Narrative data visualisation
+# MAGIC - Story templates / story system in the Miro board
 # MAGIC
 # MAGIC Often times, you don't know your dataset, so we need to explore it first.
 
@@ -183,9 +163,5 @@ display(histogram_vis_df)
 
 # COMMAND ----------
 
-histogram_vis_df
-
-# COMMAND ----------
-
-[# Now it's up to you. 
+# Now it's up to you. 
 # Check your data to gain a better understanding and insight that you want to 
