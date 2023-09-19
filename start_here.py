@@ -241,7 +241,7 @@ print("There are", len(muncipop_distribution_df.CD_REFNIS.unique()), "in the mun
 
 # COMMAND ----------
 
-# If you'd play with left or right joins, the filter will return a rows or not. 
+# If you'd play with left or right joins, the filter will return NaN rows or not. 
 muncip_accidents_df = (
     accidents_2021_df.merge(
         right=muncipop_distribution_df, 
