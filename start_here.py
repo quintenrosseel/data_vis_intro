@@ -87,7 +87,7 @@ accidents_2021_df.describe()
 
 # COMMAND ----------
 
-accidents_2021_df.head(5)
+accidents_2021_df.tail(5)
 
 # COMMAND ----------
 
@@ -314,7 +314,7 @@ len(pedestrian_accidents_stats_df.CD_AGE_mean_disc.unique())
 
 # COMMAND ----------
 
-# The ~ is a negation operation, so we take all 
+# The ~ is a negation operation, so we take all rows from the left join, where no DT_DAY is present. 
 accident_mask = muncip_accidents_df[
     ~muncip_accidents_df.DT_DAY.isna()
 ]
